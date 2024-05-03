@@ -8,8 +8,8 @@ const Navigation = () => {
     mobileMenu.classList.toggle("hidden");
   }
   return (
-    <div className="z-5">
-      <div className="hidden sm:flex flex-row justify-around items-center w-full p-5 shadow-lg fixed top-0 bg-colour-navs text-xl lg:text-2xl">
+    <div className="z-50 fixed">
+      <div className="hidden sm:flex flex-row justify-around items-center w-full p-5 shadow-lg fixed top-0 bg-colour-navs text-xl lg:text-2xl z-5">
         <a href="/" className=""><img src="/logo.png" className="w-20 h-20" /></a>
         <a href="/" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Home</a>
         <a href="#projects" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Projects</a>
@@ -17,8 +17,7 @@ const Navigation = () => {
         <a href="#about" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">About</a>
         <a href="#contact" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Contact</a>
       </div>
-      <div className="flex flex-col sm:hidden mt-2 mx-2 p-3">
-        <div>
+      <div className="flex flex-col sm:hidden p-3 shadow-md fixed top-0 w-full bg-colour-navs z-5">
           <button onClick={handleClick}><svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -33,8 +32,7 @@ const Navigation = () => {
             <path d="M3 12h18M3 6h18M3 18h18"></path>
           </svg>
           </button>
-        </div>
-        <div className="hidden flex-col" id="mobile-menu">
+        <div className="hidden flex-col text-lg z-5" id="mobile-menu">
           <a href="/" className="text-colour-text py-1 border-b border-colour-text border-opacity-40">Home</a>
           <a href="#projects" className="text-colour-text py-1 border-b border-colour-text border-opacity-40">Projects</a>
           <a href="#skills" className="text-colour-text py-1 border-b border-colour-text border-opacity-40">Skills</a>

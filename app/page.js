@@ -3,68 +3,84 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import { motion } from "framer-motion";
+import { FaArrowUp, FaArrowDown, FaPython, FaJs, FaRProject, FaGithub, FaChartPie, FaDatabase, FaAws, FaChartBar, FaCode, FaVial, FaComment, FaPen } from 'react-icons/fa'
 export default function Home() {
   const [col1projects, setCol1Projects] = useState(null);
   const [col2projects, setCol2Projects] = useState(null);
+
+  const openAccordionSection = (id) => {
+    const section = document.getElementById(id);
+    if (section.style.display === "block") {
+      section.style.display = "none";
+    } else {
+      section.style.display = "block";
+    }
+  }
   useEffect(() => setCol1Projects([
     {
       name: "Project 1",
       description: "Project 1 description",
       image: "/project1image.png",
       link: "https://project1.com",
-      repo: "https://github.com/project1"
+      repo: "https://github.com/project1",
+      id: "project1"
     },
     {
       name: "Project 2",
       description: "Project 2 description",
       image: "/project2image.png",
       link: "https://project2.com",
-      repo: "https://github.com/project2"
+      repo: "https://github.com/project2",
+      id: "project2"
     },
     {
       name: "Project 3",
       description: "Project 3 description",
       image: "/project3image.png",
       link: "https://project3.com",
-      repo: "https://github.com/project3"
+      repo: "https://github.com/project3",
+      id: "project3"
     },
   ]), [])
 
-    useEffect(() => setCol1Projects([
+  useEffect(() => setCol2Projects([
 
     {
       name: "Project 4",
       description: "Project 4 description",
       image: "/project4image.png",
       link: "https://project4.com",
-      repo: "https://github.com/project4"
+      repo: "https://github.com/project4",
+      id: "project4"
     },
     {
       name: "Project 5",
       description: "Project 5 description",
       image: "/project5image.png",
       link: "https://project5.com",
-      repo: "https://github.com/project5"
+      repo: "https://github.com/project5",
+      id: "project5"
     },
     {
       name: "Project 6",
       description: "Project 6 description",
       image: "/project6image.png",
       link: "https://project6.com",
-      repo: "https://github.com/project6"
+      repo: "https://github.com/project6",
+      id: "project6"
     }
   ]), [])
 
   return (
-    <main className="">
-      <div id="home" className="sm:pt-32 flex flex-col items-center h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom">
+    <main className="w-full z-0">
+      <div id="home" className="pt-20 sm:pt-32 flex flex-col items-center h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
         <div className="text-center w-full">
-          <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.1 }}
+          <motion.div initial={{ opacity: 0, x: -200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
             className="text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full p-16 sm:mt-12 shadow-lg w-11/12 sm:w-10/12 mx-auto mb-5">
             <h1 className="p-3">Hi! I'm Sophia.</h1>
             <p className="text-3xl mt-5">I'm a full-stack developer based in London.</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.1 }}
+          <motion.div initial={{ opacity: 0, x: 200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
             className="text-3xl bg-gradient-to-tr from-accent-two/80 to-accent-two/90 bg-opacity-80 border border-accent-two rounded-full p-10 sm:mt-20 shadow-lg w-8/12 mx-auto">
             <p className="text-lg md:text-2xl">Find me here:</p>
             <div className="flex flex-col sm:flex-row items-center justify-center">
@@ -90,32 +106,185 @@ export default function Home() {
               <p className="p-5 text-lg md:text-2xl"><a href="./SophiaWarrenCV2024.pdf" target="_blank" className="font-bold hover:text-white hover:bg-colour-text rounded-xl border-colour-text border-2 p-3">Download CV</a></p>
             </div>
           </motion.div>
-          <div className="bg-gradient-radial from-stone-950/80 via-transparent to-transparent w-full sm:w-1/2 mx-auto mt-10 sm:mt-0 rounded-full p-8">
-            <motion.a animate={{ color: ["accent-one", "white", "accent-one"] }} transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-accent-one text-lg sm:text-xl underline decoration-dotted px-16 py-6"
-              href="#projects">Click here for examples of my work</motion.a>
+          <motion.div
+            initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
+            className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 mt-10 sm:mt-20 right-1/2">
+            <a
+              className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6"
+              href="#projects" id="projectslink">
+              <p>See examples of my work</p>
+              <FaArrowDown className="text-colour-link text-3xl sm:text-5xl mx-auto" />
+            </a>
+          </motion.div>
+        </div>
+      </div>
+      <div id="projects" className="flex flex-col min-h-screen items-center pt-16 sm:pt-32 z-0">
+        <div className="flex sm:hidden flex-col items-center w-11/12 z-0">
+          {col1projects && col1projects.map((project) => (
+            <ProjectCard project={project} key={project.name} className="z-0" />
+          ))}
+          {col2projects && col2projects.map((project) => (
+            <ProjectCard project={project} key={project.name} className="z-0" />
+          ))}
+        </div>
+        <div className="hidden sm:flex flex-row items-center w-11/12 z-0">
+          {col1projects && col1projects.map((project) => (
+            <ProjectCard project={project} key={project.name} className="z-0" />
+          ))}
+          {col2projects && col2projects.map((project) => (
+            <ProjectCard project={project} key={project.name} className="z-0" />
+          ))}
+        </div>
+        <motion.div
+          initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
+          className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
+          <a
+            className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
+            href="#skills">
+            <p>Find out about my skills</p>
+            <FaArrowDown className="text-colour-link text-3xl sm:text-5xl mx-auto" />
+          </a>
+        </motion.div>
+      </div>
+      <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 min-h-screen pt-16 sm:pt-32 z-0 mx-auto w-full bg-gradient-to-br from-accent-one via-accent-one/80 to-colour-link/80">
+        <div className="col-span-1 w-11/12">
+          <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Proficient in:</h3>
+          <button onClick={() => openAccordionSection("react")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaJs className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">React & NextJS</p>
+          </button>
+          <div id="react" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("mongo")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaDatabase className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">MongoDB & Mongoose</p>
+          </button>
+          <div id="mongo" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("express")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaDatabase className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Express</p>
+          </button>
+          <div id="express" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("html")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaCode className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">HTML/CSS & Tailwind</p>
+          </button>
+          <div id="html" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("javascript")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaJs className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">JavaScript</p>
+          </button>
+          <div id="javascript" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("git")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaGithub className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Git/GitHub</p>
+          </button>
+          <div id="git" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("sql")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaDatabase className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">SQL</p>
+          </button>
+          <div id="sql" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("stata")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaChartBar className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Stata</p>
+          </button>
+          <div id="stata" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("typescript")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaJs className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">TypeScript</p>
+          </button>
+          <div id="typescript" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
           </div>
         </div>
-      </div>
-      <div id="projects" className="flex flex-col items-center h-screen p-10 sm:pt-32">
-        <div className="flex sm:hidden flex-col items-center">
-        {col1projects && col1projects.map((project) => (
-          <ProjectCard project={project} key={project.name} />
-        ))}
-        {col2projects && col2projects.map((project) => (
-          <ProjectCard project={project} key={project.name} />
-        ))}
+        <div className="col-span-1 w-11/12">
+          <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Soft skills:</h3>
+          <button onClick={() => openAccordionSection("writing")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaPen className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Technical writing</p>
+          </button>
+          <div id="writing" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("communication")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaComment className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Communication</p>
+          </button>
+          <div id="communication" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <button onClick={() => openAccordionSection("testing")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
+            <FaVial className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Software testing</p>
+          </button>
+          <div id="testing" className="hidden flex flex-col items-center w-11/12 z-0">
+            <p className="px-5 py-3 text-lg">Description here</p>
+          </div>
+          <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Some knowledge of:</h3>
+          <div className="flex flex-row items-center px-5">
+            <FaRProject className="text-colour-text text-3xl" />
+            <p className="pl-3 text-2xl">R</p>
+          </div>
+          <div className="flex flex-row items-center px-5">
+            <FaChartPie className="text-colour-text text-3xl" />
+            <p className="px-2 text-2xl">Tableau</p>
+          </div>
+          <div className="flex flex-row items-center px-5">
+            <FaAws className="text-colour-text text-3xl" />
+            <p className="px-2 text-2xl">AWS</p>
+          </div>
+          <div className="flex flex-row items-center px-5">
+            <FaPython className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Python</p>
+          </div>
+          <div className="flex flex-row items-center px-5">
+            <FaPython className="text-colour-text text-3xl" />
+            <p className="px-3 text-2xl">Django</p>
+          </div>
         </div>
-        <div className="hidden sm:flex flex-row items-center">
-        {col1projects && col1projects.map((project) => (
-          <ProjectCard project={project} key={project.name} />
-        ))}
-        {col2projects && col2projects.map((project) => (
-          <ProjectCard project={project} key={project.name} />
-        ))}
-        </div>
-
+        <motion.div
+          initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
+          className="bg-gradient-radial from-white via-white/5 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
+          <a
+            className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
+            href="#about">
+            <p>Find out more about me</p>
+            <FaArrowDown className="text-colour-link text-3xl sm:text-5xl mx-auto" />
+          </a>
+        </motion.div>
       </div>
-    </main>
+      <div id="about" className="w-full flex flex-col min-h-screen items-center bg-gradient-to-b from-white via-accent-two/20 to-accent-two">
+        <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 pt-16" src="/favicon.ico" alt="profile" />
+        <motion.div initial={{ x: -200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+          className="w-10/12 flex flex-col items-center p-8 text-lg">
+          I moved into software development after several years working in welfare benefits policy.
+          I'm passionate about "tech for good" and using my skills to solve social problems.
+          I'm always looking to learn new things and love a challenge.
+          When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my little heart out.
+          I'm also a huge foodie and a lover of tabletop RPGs.
+        </motion.div>
+        <motion.a initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+          className="bg-accent-two border-accent-two rounded-full text-2xl p-5"
+          href="#contact">
+            Get in touch
+        </motion.a>
+      </div>
+    </main >
   )
 }
