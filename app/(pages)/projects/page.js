@@ -84,7 +84,7 @@ const page = () => {
         },
         {
             name: "Stargazer",
-            description: "NextJS app using OpenWeather API",
+            description: "Next.js app using OpenWeather API",
             mainimage: "/project3image.png",
             screenshot1: "/project3shot1.png",
             screenshot2: "/project3shot2.png",
@@ -164,8 +164,8 @@ const page = () => {
                 <h1 className="text-3xl text-center text-colour-navs">Coming soon:</h1>
                 <div className="flex flex-row justify-around">
                     {upcoming && upcoming.map((project, index) =>
-                        <div key={index} className="bg-colour-navs p-3 m-5 rounded-lg shadow-lg flex flex-col w-4/12">
-                            <h1 className="text-xl">{project.name}</h1>
+                        <div key={index} className="bg-colour-navs p-3 m-5 rounded-lg shadow-lg flex flex-col w-4/12 text-lg sm:text-xl">
+                            <h1 className="text-xl sm:text-2xl">{project.name}</h1>
                             <p>{project.description}</p>
                             <a href={project.repo} className="m-2 bg-accent-two p-3 rounded-lg hover:font-bold">Github repo</a>
                             <div className="flex flex-row flex-wrap">

@@ -12,9 +12,9 @@ const Navigation = () => {
       <div className="hidden sm:flex flex-row justify-around items-center w-full p-5 shadow-lg fixed top-0 bg-colour-navs text-xl lg:text-2xl z-5">
         <a href="/" className=""><img src="/logo.png" className="w-20 h-20" /></a>
         <a href="/" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Home</a>
-        <a href="#projects" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Projects</a>
-        <a href="#skills" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Skills</a>
-        <a href="#about" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">About</a>
+        <a href="/#projects" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Projects</a>
+        <a href="/#skills" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Skills</a>
+        <a href="/#about" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">About</a>
         <a href="/contact" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Contact</a>
       </div>
       <div className="flex flex-col sm:hidden p-3 shadow-md fixed top-0 w-full bg-colour-navs z-5">
