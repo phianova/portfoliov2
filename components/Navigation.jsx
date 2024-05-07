@@ -15,7 +15,7 @@ const Navigation = () => {
         <a href="#projects" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Projects</a>
         <a href="#skills" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Skills</a>
         <a href="#about" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">About</a>
-        <a href="#contact" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Contact</a>
+        <a href="/contact" className="text-colour-text rounded-lg p-3 hover:text-colour-navs hover:bg-colour-text">Contact</a>
       </div>
       <div className="flex flex-col sm:hidden p-3 shadow-md fixed top-0 w-full bg-colour-navs z-5">
           <button onClick={handleClick}><svg

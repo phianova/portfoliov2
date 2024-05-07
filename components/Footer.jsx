@@ -8,6 +8,7 @@ const Footer = () => {
         <p id="navlink2" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#projects">Projects</a></p>
         <p id="navlink3" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#skills">Skills</a></p>
         <p id="navlink4" className="pl-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#about">About</a></p>
+        <p id="navlink5" className="pl-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/contact">Contact</a></p>
       </div>
       <div className="p-5 flex flex-row justify-center content-center items-center">
         <a href="https://www.linkedin.com/in/sophia-warren-48207913b/" target="_blank">

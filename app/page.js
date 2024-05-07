@@ -18,27 +18,27 @@ export default function Home() {
   }
   useEffect(() => setCol1Projects([
     {
-      name: "Project 1",
-      description: "Project 1 description",
+      name: "KettleOn",
+      description: "Next.js full stack team building app for remote workers",
       image: "/project1image.png",
-      link: "https://project1.com",
-      repo: "https://github.com/project1",
+      link: "https://kettle-on.vercel.app",
+      repo: "https://github.com/phianova/KettleOn",
       id: "project1"
     },
     {
-      name: "Project 2",
-      description: "Project 2 description",
+      name: "WanderLog",
+      description: "Full stack (MERN) travel diary app using Google Maps API",
       image: "/project2image.png",
-      link: "https://project2.com",
-      repo: "https://github.com/project2",
+      link: "https://wanderlogfront.vercel.app",
+      repo: "https://github.com/DonPuffin/Wanderlogback",
       id: "project2"
     },
     {
-      name: "Project 3",
-      description: "Project 3 description",
+      name: "Stargazer",
+      description: "Next.js app using OpenWeather API",
       image: "/project3image.png",
-      link: "https://project3.com",
-      repo: "https://github.com/project3",
+      link: "https://stargazer-puce.vercel.app",
+      repo: "https://github.com/phianova/stargazer",
       id: "project3"
     },
   ]), [])
@@ -46,42 +46,42 @@ export default function Home() {
   useEffect(() => setCol2Projects([
 
     {
-      name: "Project 4",
-      description: "Project 4 description",
+      name: "Ninian James Frenguelli",
+      description: "Next.js online CV for academic",
       image: "/project4image.png",
-      link: "https://project4.com",
-      repo: "https://github.com/project4",
+      link: "https://ninianjames.github.io",
+      repo: "https://github.com/phianova/njf",
       id: "project4"
     },
     {
-      name: "Project 5",
-      description: "Project 5 description",
+      name: "DnD Character Quiz",
+      description: "HTML/CSS, TailwindCSS and JavaScript quiz",
       image: "/project5image.png",
-      link: "https://project5.com",
-      repo: "https://github.com/project5",
+      link: "https://phianova.github.io/dnd-quiz",
+      repo: "https://github.com/phianova/dnd-quiz",
       id: "project5"
     },
     {
-      name: "Project 6",
-      description: "Project 6 description",
+      name: "Mudlark",
+      description: "HTML Canvas, CSS and vanilla JavaScript game",
       image: "/project6image.png",
-      link: "https://project6.com",
-      repo: "https://github.com/project6",
+      link: "https://phianova.github.io/mudlark",
+      repo: "https://github.com/phianova/mudlark",
       id: "project6"
     }
   ]), [])
 
   return (
     <main className="w-full z-0">
-      <div id="home" className="pt-20 sm:pt-32 flex flex-col items-center h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
+      <div id="home" className="pt-20 sm:pt-32 flex flex-col items-center min-h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
         <div className="text-center w-full">
           <motion.div initial={{ opacity: 0, x: -200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
-            className="text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full p-16 sm:mt-12 shadow-lg w-11/12 sm:w-10/12 mx-auto mb-5">
+            className="text-4xl sm:text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full p-16 sm:mt-12 shadow-lg w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6/12 mx-auto mb-5">
             <h1 className="p-3">Hi! I'm Sophia.</h1>
-            <p className="text-3xl mt-5">I'm a full-stack developer based in London.</p>
+            <p className="text-2xl sm:text-3xl mt-5">I'm a full-stack developer based in London.</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
-            className="text-3xl bg-gradient-to-tr from-accent-two/80 to-accent-two/90 bg-opacity-80 border border-accent-two rounded-full p-10 sm:mt-20 shadow-lg w-8/12 mx-auto">
+            className="text-3xl bg-gradient-to-tr from-accent-two/80 to-accent-two/90 bg-opacity-80 border border-accent-two rounded-full p-10 sm:mt-10 2xl:mt-20 shadow-lg w-8/12 lg:w-5/12 mx-auto">
             <p className="text-lg md:text-2xl">Find me here:</p>
             <div className="flex flex-col sm:flex-row items-center justify-center">
               <div className="flex flex-row">
@@ -103,12 +103,12 @@ export default function Home() {
                   </svg>
                 </a>
               </div>
-              <p className="p-5 text-lg md:text-2xl"><a href="./SophiaWarrenCV2024.pdf" target="_blank" className="font-bold hover:text-white hover:bg-colour-text rounded-xl border-colour-text border-2 p-3">Download CV</a></p>
+              <p className="py-5 sm:p-5 text-lg md:text-2xl"><a href="./SophiaWarrenCV2024.pdf" target="_blank" className="font-bold hover:text-white hover:bg-colour-text rounded-xl border-colour-text border-2 p-3">Download CV</a></p>
             </div>
           </motion.div>
           <motion.div
             initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
-            className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 mt-10 sm:mt-20 right-1/2">
+            className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 2xl:mt-20 right-1/2">
             <a
               className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6"
               href="#projects" id="projectslink">
@@ -118,8 +118,10 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-      <div id="projects" className="flex flex-col min-h-screen items-center pt-16 sm:pt-32 z-0">
-        <div className="flex sm:hidden flex-col items-center w-11/12 z-0">
+
+
+      <div id="projects" className="flex flex-col min-h-screen items-center pt-16 sm:pt-32 z-0 mx-auto bg-gradient-to-br from-colour-text via-colour-text to-black">
+        <div className="flex sm:hidden flex-col items-center w-11/12 mx-auto z-0">
           {col1projects && col1projects.map((project) => (
             <ProjectCard project={project} key={project.name} className="z-0" />
           ))}
@@ -127,25 +129,34 @@ export default function Home() {
             <ProjectCard project={project} key={project.name} className="z-0" />
           ))}
         </div>
-        <div className="hidden sm:flex flex-row items-center w-11/12 z-0">
+        <div className="hidden sm:flex flex-row items-center justify-between w-11/12 mx-auto z-0">
+          <div className="flex flex-col w-1/2 mx-10">
           {col1projects && col1projects.map((project) => (
             <ProjectCard project={project} key={project.name} className="z-0" />
           ))}
+          </div>
+          <div className="flex flex-col w-1/2 mx-10">
           {col2projects && col2projects.map((project) => (
             <ProjectCard project={project} key={project.name} className="z-0" />
           ))}
+          </div>
         </div>
+        <a className="bg-colour-navs rounded-xl w-10/12 sm:w-8/12 mt-4 sm:mt-10 text-center p-5 text-3xl hover:bg-accent-one" href="/projects">
+            View all projects
+        </a>
         <motion.div
           initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
-          className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
+          className="bg-gradient-radial from-colour-text via-transparent to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
           <a
-            className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
+            className="text-colour-navs text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
             href="#skills">
             <p>Find out about my skills</p>
-            <FaArrowDown className="text-colour-link text-3xl sm:text-5xl mx-auto" />
+            <FaArrowDown className="text-colour-navs text-3xl sm:text-5xl mx-auto" />
           </a>
         </motion.div>
       </div>
+
+
       <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 min-h-screen pt-16 sm:pt-32 z-0 mx-auto w-full bg-gradient-to-br from-accent-one via-accent-one/80 to-colour-link/80">
         <div className="col-span-1 w-11/12">
           <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Proficient in:</h3>
@@ -260,7 +271,7 @@ export default function Home() {
         </div>
         <motion.div
           initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
-          className="bg-gradient-radial from-white via-white/5 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
+          className="col-span-1 sm:col-span-2 bg-gradient-radial from-white via-white/5 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20">
           <a
             className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
             href="#about">
@@ -269,18 +280,21 @@ export default function Home() {
           </a>
         </motion.div>
       </div>
-      <div id="about" className="w-full flex flex-col min-h-screen items-center bg-gradient-to-b from-white via-accent-two/20 to-accent-two">
-        <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 pt-16" src="/favicon.ico" alt="profile" />
+
+      
+      <div id="about" className="w-full flex flex-col min-h-screen items-center bg-gradient-to-b from-white via-accent-two/20 to-accent-two pt-16 sm:pt-32">
+        <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 xl:w-2/12 sm:pt-4" src="/favicon.ico" alt="profile" />
         <motion.div initial={{ x: -200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-          className="w-10/12 flex flex-col items-center p-8 text-lg">
+          className="w-10/12 lg:w-8/12 xl:w-6/12 flex flex-col items-center p-8 my-2 sm:my-5 text-lg md:text-xl lg:text-2xl bg-gradient-to-r from-white/40 to-white/20 rounded-xl">
           I moved into software development after several years working in welfare benefits policy.
           I'm passionate about "tech for good" and using my skills to solve social problems.
           I'm always looking to learn new things and love a challenge.
-          When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my little heart out.
+          <br></br><br></br>When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my little heart out.
           I'm also a huge foodie and a lover of tabletop RPGs.
         </motion.div>
-        <motion.a initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-          className="bg-accent-two border-accent-two rounded-full text-2xl p-5"
+        <motion.a 
+          initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
+          className="bg-accent-two border-white/40 border-4 rounded-full text-2xl my-10 p-5 hover:bg-white"
           href="#contact">
             Get in touch
         </motion.a>
