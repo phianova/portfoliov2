@@ -4,10 +4,10 @@ const Footer = () => {
   return (
     <div className="text-base w-full text-center p-5 border-t border-colour-text border-dashed bg-colour-navs flex flex-col items-center">
     <div className="flex flex-row flex-wrap justify-center">
-        <p id="navlink1" className="pr-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#home">Home</a></p>
-        <p id="navlink2" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#projects">Projects</a></p>
-        <p id="navlink3" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#skills">Skills</a></p>
-        <p id="navlink4" className="pl-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="#about">About</a></p>
+        <p id="navlink1" className="pr-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/#home">Home</a></p>
+        <p id="navlink2" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/#projects">Projects</a></p>
+        <p id="navlink3" className="p-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/#skills">Skills</a></p>
+        <p id="navlink4" className="pl-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/#about">About</a></p>
         <p id="navlink5" className="pl-3 py-3 m-2 rounded-xl hover:font-bold hover:text-accentmid"><a href="/contact">Contact</a></p>
       </div>
       <div className="p-5 flex flex-row justify-center content-center items-center">
@@ -31,8 +31,8 @@ const Footer = () => {
         <span className="px-3"></span>
         <a id="navlink6" className="p-2 rounded-full hover:bg-colour-text border-2 border-colour-text hover:font-bold hover:text-white" href="./SophiaWarrenCV2024.pdf" target="_blank">CV</a>
       </div>
-      <p className="py-5 mb-10">© Sophia Warren 2024</p>
-
+      <p className="py-5 my-3">© Sophia Warren 2024</p>
+      <p className="mb-10">Site built with Next.js/React, TailwindCSS and FramerMotion. Hosted on Vercel.</p>
     </div>
   )
 }

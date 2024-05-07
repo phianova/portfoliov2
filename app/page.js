@@ -162,7 +162,7 @@ export default function Home() {
           <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Proficient in:</h3>
           <button onClick={() => openAccordionSection("react")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaJs className="text-colour-text text-3xl" />
-            <p className="px-3 text-2xl">React & NextJS</p>
+            <p className="px-3 text-2xl">React & Next.js</p>
           </button>
           <div id="react" className="hidden flex flex-col items-center w-11/12 z-0">
             <p className="px-5 py-3 text-lg">Description here</p>
@@ -197,14 +197,14 @@ export default function Home() {
           </div>
           <button onClick={() => openAccordionSection("git")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaGithub className="text-colour-text text-3xl" />
-            <p className="px-3 text-2xl">Git/GitHub</p>
+            <p className="px-3 text-2xl">Git & GitHub</p>
           </button>
           <div id="git" className="hidden flex flex-col items-center w-11/12 z-0">
             <p className="px-5 py-3 text-lg">Description here</p>
           </div>
           <button onClick={() => openAccordionSection("sql")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaDatabase className="text-colour-text text-3xl" />
-            <p className="px-3 text-2xl">SQL</p>
+            <p className="px-3 text-2xl">SQL & PostgreSQL</p>
           </button>
           <div id="sql" className="hidden flex flex-col items-center w-11/12 z-0">
             <p className="px-5 py-3 text-lg">Description here</p>
@@ -295,7 +295,7 @@ export default function Home() {
         <motion.a 
           initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
           className="bg-accent-two border-white/40 border-4 rounded-full text-2xl my-10 p-5 hover:bg-white"
-          href="#contact">
+          href="/contact">
             Get in touch
         </motion.a>
       </div>
