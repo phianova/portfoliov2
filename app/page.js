@@ -75,11 +75,11 @@ export default function Home() {
   useEffect(() => setProjects([
     {
       name: "KettleOn",
-      description: "MERN stack with Next.js - team-building app for remote workers",
+      description: "Next.js & TypeScript - team-building app for remote workers",
       mainimage: "/project1image.png",
       screenshot1: "/project1shot1.png",
       screenshot2: "/project1shot2.png",
-      techstack: ["Node.js", "MongoDB", "Mongoose", "tRPC", "Kinde", "React", "Next.js", "TailwindCSS", "GitHub"],
+      techstack: ["Node.js", "MongoDB", "Mongoose", "tRPC", "TypeScript","Kinde", "React", "Next.js", "TailwindCSS", "GitHub"],
       story: `I built this Next.js full-stack app as part of a team, focusing on the backend and authentication.
           I used Kinde and tRPC, connecting to a MongoDB noSQL database. 
           KettleOn contains a range of scored team-building activities.
@@ -90,7 +90,7 @@ export default function Home() {
     },
     {
       name: "Wanderlog",
-      description: "Travel diary app using Google API",
+      description: "MERN stack travel diary app using Google API",
       mainimage: "/project2image.png",
       screenshot1: "/project2shot1.png",
       screenshot2: "/project2shot2.png",
@@ -115,7 +115,7 @@ export default function Home() {
     },
     {
       name: "Ninian James Frenguelli",
-      description: "Professional online CV/portfolio for academic",
+      description: "Next.js & TailwindCSS - online CV/portfolio for academic",
       mainimage: "/project4image.png",
       screenshot1: "/project4shot1.png",
       screenshot2: "/project4shot2.png",
@@ -154,19 +154,19 @@ export default function Home() {
     {
       name: "TamiLang",
       description: "Language-learning app for Tamil alphabet",
-      techstack: ["React", "Next.js", "TailwindCSS", "Python", "Django", "GitHub"],
+      techstack: ["Python", "Django", "React", "Next.js", "PostgreSQL", "TailwindCSS", "GitHub"],
       repo: "https://github.com/phianova/tamilang-back",
     },
     {
       name: "Alamara",
       description: "Online shop for handmade saree business",
-      techstack: ["React", "Next.js", "TailwindCSS", "Stripe"],
+      techstack: ["React", "Next.js", "TailwindCSS", "Stripe", "GitHub"],
       repo: "https://github.com/phianova/handpickedsarees",
     },
     {
       name: "Padam productions",
       description: "Portfolio site for videographer and photographer",
-      techstack: ["React", "Next.js", "TailwindCSS", "Aceternity UI"],
+      techstack: ["React", "Next.js", "TailwindCSS", "Aceternity UI", "GitHub"],
       repo: "https://github.com/phianova/padam",
     }
   ]), [])
@@ -174,12 +174,12 @@ export default function Home() {
 
   return (
     <main className="w-full z-0">
-      <div id="home" className="pt-16 sm:pt-32 flex flex-col items-center justify-between h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
+      <div id="home" className="pt-16 sm:pt-32 flex flex-col items-center justify-between min-h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
         <div className="text-center w-full">
           <motion.div initial={{ opacity: 0, x: -200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
-            className="text-4xl sm:text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full px-10 py-16 md:p-16 mt-2 sm:mt-10 shadow-lg w-11/12 sm:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mb-5">
+            className="text-3xl sm:text-4xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full px-10 py-10 md:p-10 mt-2 sm:mt-6 shadow-lg w-11/12 sm:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mb-5">
             <h1 className="p-3">Hi! I'm Sophia.</h1>
-            <p className="text-2xl sm:text-3xl mt-5">I'm a full-stack developer based in London. I use:</p>
+            <p className="text-xl sm:text-2xl my-3">I'm a full-stack developer based in London. I use:</p>
             <div className="w-full flex flex-row flex-wrap items-center justify-center">
               {myStack && myStack.map((tech, index) => (
                 <motion.div
@@ -231,7 +231,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-colour-text pt-20 sm:pt-32" id="projects">
+      <div className="bg-colour-text" id="projects">
         {projects && projects.map((project) =>
           <div key={project.id} id={project.id}>
             <ProjectSection project={project}></ProjectSection>
@@ -291,7 +291,7 @@ export default function Home() {
           </div>
           <button onClick={() => openAccordionSection("html")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaCode className="text-colour-text text-3xl" />
-            <p className="px-3 text-2xl">HTML/CSS & Tailwind</p>
+            <p className="px-3 text-2xl">HTML/CSS & TailwindCSS</p>
           </button>
           <div id="html" className="hidden flex flex-col items-center w-11/12 z-0">
             <p className="px-5 py-3 text-lg">9 months' experience building Next.js sites and HTML pages using TailwindCSS and other libraries</p>
@@ -397,13 +397,13 @@ export default function Home() {
 
 
       <div id="about" className="w-full flex flex-col min-h-screen items-center bg-gradient-to-b from-white via-accent-two/20 to-accent-two pt-16 sm:pt-32">
-        <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 xl:w-2/12 sm:pt-4" src="/favicon.ico" alt="profile" />
+        <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 md:w-1/12 sm:pt-4" src="/favicon.ico" alt="profile" />
         <motion.div initial={{ x: -200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
           className="w-10/12 lg:w-8/12 xl:w-6/12 flex flex-col items-center p-8 my-2 sm:my-5 text-lg md:text-xl lg:text-2xl bg-gradient-to-r from-white/40 to-white/20 rounded-xl">
           I moved into software development after working in welfare benefits policy and data analysis.
           I'm passionate about "tech for good" and using my skills to solve social problems.
-          <br></br><br></br>When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my heart out.
-          Also a huge foodie and a fan of tabletop RPGs.
+          <br></br><br></br>When I'm not tapping away at a keyboard, I can be found tapping away at a piano or strumming away at a guitar.
+          I'm also a big foodie, and a fan of tabletop RPGs.
         </motion.div>
         <motion.a
           initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}

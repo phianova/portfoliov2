@@ -33,14 +33,14 @@ const ProjectSection = ({ project }) => {
     const techstack = []
     project.techstack.forEach((tech) => techstack.push({name: tech, icon: icons[tech]}))
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 h-full sm:h-screen bg-gradient-to-br from-colour-text to-black text-colour-navs text-xl pt-10 px-6 sm:pt-36 sm:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 h-full sm:min-h-screen bg-gradient-to-br from-colour-text to-black text-colour-navs text-xl pt-10 px-6 sm:pt-36 sm:px-8">
             <div className="col-span-1">
                 <h1 className="text-5xl">{project.name}</h1>
                 <p className="text-3xl pr-2">{project.description}</p>
                 <div className="flex flex-row text-colour-text bg-gradient-to-r from-accent-one via-accent-one to-white w-fit p-3 my-2 rounded-lg">
-                    <a href={project.link} className="hover:font-bold">Live link</a>
+                    <a href={project.link} target="_blank" className="hover:font-bold">Live link</a>
                     <p className="px-6">|</p>
-                    <a href={project.repo} className="hover:font-bold">Github repo</a>
+                    <a href={project.repo} target="_blank" className="hover:font-bold">Github repo</a>
                 </div>
                 <div className="mx-auto sm:mx-0 bg-gradient-to-tr from-colour-navs via-colour-navs to-white text-colour-text p-5 sm:p-10 my-5 rounded-xl shadow-lg w-full sm:w-11/12">
                 <div>{project.story}</div>
