@@ -29,7 +29,7 @@ const Footer = () => {
           </svg>
         </a>
         <span className="px-3"></span>
-        <a id="navlink6" className="p-2 rounded-full hover:bg-colour-text border-2 border-colour-text hover:font-bold hover:text-white" href="./SophiaWarrenCV2024.pdf" target="_blank">CV</a>
+        <a id="navlink6" className="p-2 rounded-full hover:bg-colour-text border-2 border-colour-text hover:font-bold hover:text-white" href="./SophiaWarrenCV.pdf" target="_blank">CV</a>
       </div>
       <p className="py-5 my-3">© Sophia Warren 2024</p>
       <p className="mb-10">Site built with Next.js/React, TailwindCSS and FramerMotion. Hosted on Vercel.</p>
