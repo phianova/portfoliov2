@@ -32,8 +32,6 @@ const ProjectSection = ({ project }) => {
     }
     const techstack = []
     project.techstack.forEach((tech) => techstack.push({name: tech, icon: icons[tech]}))
-
-    console.log("section", project.name, project.id)
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 h-full sm:h-screen bg-gradient-to-br from-colour-text to-black text-colour-navs text-xl pt-10 px-6 sm:pt-36 sm:px-8">
             <div className="col-span-1">
@@ -60,7 +58,7 @@ const ProjectSection = ({ project }) => {
                 </div>
 
             </div>
-            <div className="col-span-1 rounded-lg overflow-scroll h-[80vh] p-2 border-2 border-colour-link bg-gradient-to-tr from-colour-link via-white to-colour-link">
+            <div className="col-span-1 rounded-lg overflow-scroll max-h-[80vh] p-2 border-2 m-3 border-colour-text bg-gradient-to-tr from-colour-text/80 via-black/80 to-black">
                 <img src={project.mainimage} alt={project.name} className="overflow-scroll mb-1 rounded-t-lg mx-auto"/>
                 <img src={project.screenshot1} alt={project.name} className="overflow-scroll my-1 mx-auto"/>
                 <img src={project.screenshot2} alt={project.name} className="overflow-scroll mt-1 rounded-b-lg mx-auto"/>

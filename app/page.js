@@ -1,12 +1,10 @@
 "use client"
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import ProjectCard from "../components/ProjectCard";
+import ProjectSection from "../components/ProjectSection";
 import { motion } from "framer-motion";
-import { FaArrowUp, FaArrowDown, FaPython, FaJs, FaRProject, FaGithub, FaChartPie, FaDatabase, FaAws, FaChartBar, FaCode, FaVial, FaComment, FaPen } from 'react-icons/fa'
+import { FaArrowUp, FaCloudRain, FaReact, FaArrowDown, FaPython, FaJs, FaRProject, FaGithub, FaChartPie, FaDatabase, FaLock, FaAws, FaGoogle, FaCreditCard, FaChartBar, FaCode, FaVial, FaComment, FaPen } from 'react-icons/fa'
+
 export default function Home() {
-  const [col1projects, setCol1Projects] = useState(null);
-  const [col2projects, setCol2Projects] = useState(null);
 
   const openAccordionSection = (id) => {
     const section = document.getElementById(id);
@@ -16,19 +14,89 @@ export default function Home() {
       section.style.display = "block";
     }
   }
-  useEffect(() => setCol1Projects([
+
+  const [projects, setProjects] = useState(null);
+  const [upcoming, setUpcoming] = useState(null);
+
+  useEffect(() => {
+    const scrollToProject = () => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const id = queryParams.get('id');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    scrollToProject();
+  }, [projects]);
+
+  const myStack = [
+    "MongoDB",
+    "Node.js",
+    "Express",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "TailwindCSS",
+    "+ more!"
+  ]
+
+  const icons = {
+    "React": <FaReact />,
+    "Next.js": <FaJs />,
+    "Python": <FaPython />,
+    "Django": <FaPython />,
+    "JavaScript": <FaJs />,
+    "GitHub": <FaGithub />,
+    "Git": <FaGithub />,
+    "Figma": <FaCode />,
+    "VSCode": <FaCode />,
+    "Node.js": <FaJs />,
+    "HTML/CSS": <FaCode />,
+    "TailwindCSS": <FaCode />,
+    "SQL": <FaDatabase />,
+    "PostgresSQL": <FaDatabase />,
+    "MongoDB": <FaDatabase />,
+    "Mongoose": <FaDatabase />,
+    "AWS": <FaAws />,
+    "Jest": <FaVial />,
+    "R": <FaRProject />,
+    "Supertest": <FaVial />,
+    "Kinde": <FaLock />,
+    "tRPC": <FaDatabase />,
+    "TypeScript": <FaJs />,
+    "Express": <FaDatabase />,
+    "Google API": <FaGoogle />,
+    "Stripe": <FaCreditCard />,
+    "Aceternity UI": <FaCode />,
+    "OpenWeather API": <FaCloudRain />
+  }
+
+  useEffect(() => setProjects([
     {
       name: "KettleOn",
-      description: "Next.js full stack team building app for remote workers",
-      image: "/project1image.png",
+      description: "MERN stack with Next.js - team-building app for remote workers",
+      mainimage: "/project1image.png",
+      screenshot1: "/project1shot1.png",
+      screenshot2: "/project1shot2.png",
+      techstack: ["Node.js", "MongoDB", "Mongoose", "tRPC", "Kinde", "React", "Next.js", "TailwindCSS", "GitHub"],
+      story: `I built this Next.js full-stack app as part of a team, focusing on the backend and authentication.
+          I used Kinde and tRPC, connecting to a MongoDB noSQL database. 
+          KettleOn contains a range of scored team-building activities.
+          Managers can register their team and add members using a form I built to interact with the Kinde API.`,
       link: "https://kettle-on.vercel.app",
       repo: "https://github.com/phianova/KettleOn",
       id: "project1"
     },
     {
-      name: "WanderLog",
-      description: "Full stack (MERN) travel diary app using Google Maps API",
-      image: "/project2image.png",
+      name: "Wanderlog",
+      description: "Travel diary app using Google API",
+      mainimage: "/project2image.png",
+      screenshot1: "/project2shot1.png",
+      screenshot2: "/project2shot2.png",
+      techstack: ["Node.js", "MongoDB", "Mongoose", "Express", "Google API", "Supertest", "React", "Next.js", "TailwindCSS", "GitHub"],
+      story: `This MERN stack app was built as part of a team - I worked on the backend and Google API integration. 
+          I used Supertest to test the API endpoints. The backend is hosted on Render.`,
       link: "https://wanderlogfront.vercel.app",
       repo: "https://github.com/DonPuffin/Wanderlogback",
       id: "project2"
@@ -36,52 +104,96 @@ export default function Home() {
     {
       name: "Stargazer",
       description: "Next.js app using OpenWeather API",
-      image: "/project3image.png",
+      mainimage: "/project3image.png",
+      screenshot1: "/project3shot1.png",
+      screenshot2: "/project3shot2.png",
+      techstack: ["React", "Next.js", "TailwindCSS", "OpenWeather API", "GitHub"],
+      story: "I built this app to monitor weather conditions for stargazing, connecting a Next.js frontend to the OpenWeather API.",
       link: "https://stargazer-puce.vercel.app",
       repo: "https://github.com/phianova/stargazer",
       id: "project3"
     },
-  ]), [])
-
-  useEffect(() => setCol2Projects([
-
     {
       name: "Ninian James Frenguelli",
-      description: "Next.js online CV for academic",
-      image: "/project4image.png",
+      description: "Professional online CV/portfolio for academic",
+      mainimage: "/project4image.png",
+      screenshot1: "/project4shot1.png",
+      screenshot2: "/project4shot2.png",
+      techstack: ["React", "Next.js", "TailwindCSS", "GitHub"],
+      story: `I built this Next.js app for an academic who needed an online CV to showcase his research contributions and recent findings. I used Next.js components to create a responsive container for some very large SVG graphs he wanted to display.`,
       link: "https://ninianjames.github.io",
       repo: "https://github.com/phianova/njf",
       id: "project4"
     },
+    // {
+    //     name: "DnD Character Quiz",
+    //     description: "HTML/CSS and vanilla JavaScript quiz to help you choose a DnD character class",
+    //     mainimage: "/project5image.png",
+    //     screenshot1: "/project5shot1.png",
+    //     screenshot2: "/project5shot2.png",
+    //     techstack: ["HTML/CSS", "TailwindCSS", "JavaScript", "GitHub"],
+    //     story: "I built this JavaScript quiz as part of a bootcamp, using TailwindCSS for styling.",
+    //     link: "https://phianova.github.io/dnd-quiz/",
+    //     repo: "https://github.com/phianova/dnd-quiz",
+    //     id: "project5"
+    // },
+    // {
+    //     name: "Mudlark",
+    //     description: "HTML Canvas, CSS and vanilla JavaScript game about mudlarking.",
+    //     mainimage: "/project6image.png",
+    //     screenshot1: "/project6shot1.png",
+    //     screenshot2: "/project6shot2.png",
+    //     techstack: ["HTML/CSS", "JavaScript", "GitHub"],
+    //     story: "This is the first thing I ever built in HTML/CSS and JavaScript. It was for an application to a bootcamp - I love to look back at it and see how much I've learnt since! But also, I still kind of think it's pretty cool.",
+    //     link: "https://phianova.github.io/mudlark",
+    //     repo: "https://github.com/phianova/mudlark",
+    //     id: "project6"
+    // }
+  ]), [])
+  useEffect(() => setUpcoming([
     {
-      name: "DnD Character Quiz",
-      description: "HTML/CSS, TailwindCSS and JavaScript quiz",
-      image: "/project5image.png",
-      link: "https://phianova.github.io/dnd-quiz",
-      repo: "https://github.com/phianova/dnd-quiz",
-      id: "project5"
+      name: "TamiLang",
+      description: "Language-learning app for Tamil alphabet",
+      techstack: ["React", "Next.js", "TailwindCSS", "Python", "Django", "GitHub"],
+      repo: "https://github.com/phianova/tamilang-back",
     },
     {
-      name: "Mudlark",
-      description: "HTML Canvas, CSS and vanilla JavaScript game",
-      image: "/project6image.png",
-      link: "https://phianova.github.io/mudlark",
-      repo: "https://github.com/phianova/mudlark",
-      id: "project6"
+      name: "Alamara",
+      description: "Online shop for handmade saree business",
+      techstack: ["React", "Next.js", "TailwindCSS", "Stripe"],
+      repo: "https://github.com/phianova/handpickedsarees",
+    },
+    {
+      name: "Padam productions",
+      description: "Portfolio site for videographer and photographer",
+      techstack: ["React", "Next.js", "TailwindCSS", "Aceternity UI"],
+      repo: "https://github.com/phianova/padam",
     }
   ]), [])
 
+
   return (
     <main className="w-full z-0">
-      <div id="home" className="pt-20 sm:pt-32 flex flex-col items-center min-h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
+      <div id="home" className="pt-16 sm:pt-32 flex flex-col items-center justify-between h-screen bg-[url('/avatar2.png')] bg-no-repeat bg-right-bottom z-0">
         <div className="text-center w-full">
           <motion.div initial={{ opacity: 0, x: -200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
-            className="text-4xl sm:text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full p-16 sm:mt-12 shadow-lg w-11/12 sm:w-10/12 lg:w-8/12 xl:w-6/12 mx-auto mb-5">
+            className="text-4xl sm:text-5xl bg-gradient-to-l from-white/90 to-accent-one/90 bg-opacity-80 border border-accent-one rounded-full px-10 py-16 md:p-16 mt-2 sm:mt-10 shadow-lg w-11/12 sm:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mb-5">
             <h1 className="p-3">Hi! I'm Sophia.</h1>
-            <p className="text-2xl sm:text-3xl mt-5">I'm a full-stack developer based in London.</p>
+            <p className="text-2xl sm:text-3xl mt-5">I'm a full-stack developer based in London. I use:</p>
+            <div className="w-full flex flex-row flex-wrap items-center justify-center">
+              {myStack && myStack.map((tech, index) => (
+                <motion.div
+                  initial={{ x: 60 }} whileInView={{ x: [60, 0, -10, 0] }} transition={{ duration: 0.6, once: true, delay: index * 0.1 }}
+                  key={index}
+                  className="text-lg lg:text-xl w-fit flex flex-row items-center text-colour-text bg-gradient-to-r from-accent-one via-accent-one to-white p-3 mr-4 my-2 rounded-lg">
+                  {icons[tech]}
+                  <p className="px-2">{tech}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 200, z: 0 }} whileInView={{ opacity: 1, x: 0, z: 0 }} transition={{ duration: 1.1 }}
-            className="text-3xl bg-gradient-to-tr from-accent-two/80 to-accent-two/90 bg-opacity-80 border border-accent-two rounded-full p-10 sm:mt-10 2xl:mt-20 shadow-lg w-8/12 lg:w-5/12 mx-auto">
+            className="text-3xl bg-gradient-to-tr from-accent-two/80 to-accent-two/90 bg-opacity-80 border border-accent-two rounded-full p-10 2xl:mt-10 shadow-lg w-8/12 lg:w-5/12 mx-auto">
             <p className="text-lg md:text-2xl">Find me here:</p>
             <div className="flex flex-col sm:flex-row items-center justify-center">
               <div className="flex flex-row">
@@ -103,12 +215,12 @@ export default function Home() {
                   </svg>
                 </a>
               </div>
-              <p className="py-5 sm:p-5 text-lg md:text-2xl"><a href="./SophiaWarrenCV2024.pdf" target="_blank" className="font-bold hover:text-white hover:bg-colour-text rounded-xl border-colour-text border-2 p-3">Download CV</a></p>
+              <p className="py-5 sm:p-5 text-lg md:text-2xl"><a href="./SophiaWarrenCV.pdf" target="_blank" className="font-bold hover:text-white hover:bg-colour-text rounded-xl border-colour-text border-2 p-3">Download CV</a></p>
             </div>
           </motion.div>
           <motion.div
             initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
-            className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 2xl:mt-20 right-1/2">
+            className="bg-gradient-radial from-white via-white/10 to-transparent w-full sm:w-1/2 mx-auto rounded-full p-4 right-1/2">
             <a
               className="text-colour-link text-lg sm:text-xl underline decoration-dotted px-16 py-6"
               href="#projects" id="projectslink">
@@ -119,41 +231,34 @@ export default function Home() {
         </div>
       </div>
 
-
-      <div id="projects" className="flex flex-col min-h-screen items-center pt-16 sm:pt-32 z-0 mx-auto bg-gradient-to-br from-colour-text via-colour-text to-black">
-        <div className="flex sm:hidden flex-col items-center w-11/12 mx-auto z-0">
-          {col1projects && col1projects.map((project) => (
-            <ProjectCard project={project} key={project.name} className="z-0" />
-          ))}
-          {col2projects && col2projects.map((project) => (
-            <ProjectCard project={project} key={project.name} className="z-0" />
-          ))}
-        </div>
-        <div className="hidden sm:flex flex-row items-center justify-between w-11/12 mx-auto z-0">
-          <div className="flex flex-col w-1/2 mx-10">
-          {col1projects && col1projects.map((project) => (
-            <ProjectCard project={project} key={project.name} className="z-0" />
-          ))}
+      <div className="bg-colour-text pt-20 sm:pt-32" id="projects">
+        {projects && projects.map((project) =>
+          <div key={project.id} id={project.id}>
+            <ProjectSection project={project}></ProjectSection>
           </div>
-          <div className="flex flex-col w-1/2 mx-10">
-          {col2projects && col2projects.map((project) => (
-            <ProjectCard project={project} key={project.name} className="z-0" />
-          ))}
+        )}
+        <div className="h-full sm:h-screen pt-16 sm:pt-32 flex flex-col justify-center">
+          <h1 className="text-3xl text-center text-colour-navs">Coming soon:</h1>
+          <div className="flex flex-col sm:flex-row sm:justify-around">
+            {upcoming && upcoming.map((project, index) =>
+              <div key={index} className="bg-colour-navs p-3 m-5 rounded-lg shadow-lg flex flex-col sm:w-4/12 text-lg sm:text-xl">
+                <h1 className="text-xl sm:text-2xl">{project.name}</h1>
+                <p>{project.description}</p>
+                <a href={project.repo} className="m-2 bg-accent-two p-3 rounded-lg hover:font-bold">Github repo</a>
+                <div className="flex flex-row flex-wrap">
+                  {project.techstack && project.techstack.map((tech, index) => (
+                    <motion.div
+                      initial={{ x: 60 }} whileInView={{ x: [60, 0, -10, 0] }} transition={{ duration: 0.6, once: true, delay: index * 0.1 }}
+                      key={index}
+                      className="w-fit flex flex-row text-colour-text bg-gradient-to-r from-accent-one via-accent-one to-white p-3 mr-4 my-2 rounded-lg">
+                      {icons[tech]}
+                      <p className="px-2">{tech}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>)}
           </div>
         </div>
-        <a className="bg-colour-navs rounded-xl w-10/12 sm:w-8/12 mt-4 sm:mt-10 text-center p-5 text-3xl hover:bg-accent-one" href="/projects">
-            View all projects
-        </a>
-        <motion.div
-          initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
-          className="bg-gradient-radial from-colour-text via-transparent to-transparent w-full sm:w-1/2 mx-auto rounded-full p-8 sm:mt-20 right-1/2">
-          <a
-            className="text-colour-navs text-lg sm:text-xl underline decoration-dotted px-16 py-6 text-center"
-            href="#skills">
-            <p>Find out about my skills</p>
-            <FaArrowDown className="text-colour-navs text-3xl sm:text-5xl mx-auto" />
-          </a>
-        </motion.div>
       </div>
 
 
@@ -165,63 +270,72 @@ export default function Home() {
             <p className="px-3 text-2xl">React & Next.js</p>
           </button>
           <div id="react" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">6 months' experience building full-stack MERN stack applications and Next.js full-stack applications.</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/?id=project2">WanderLog</a> | <a className="text-colour-link hover:font-bold" href="/?id=project3">Stargazer</a> | <a className="text-colour-link hover:font-bold" href="/?id=project4">NJF</a></p>
           </div>
           <button onClick={() => openAccordionSection("mongo")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaDatabase className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">MongoDB & Mongoose</p>
           </button>
           <div id="mongo" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">6 months' experience building full-stack MERN stack applications</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/?id=project2">WanderLog</a></p>
           </div>
           <button onClick={() => openAccordionSection("express")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaDatabase className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">Express</p>
           </button>
           <div id="express" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">6 months' experience building full-stack MERN stack applications</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/?id=project2">WanderLog</a></p>
           </div>
           <button onClick={() => openAccordionSection("html")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaCode className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">HTML/CSS & Tailwind</p>
           </button>
           <div id="html" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">9 months' experience building Next.js sites and HTML pages using TailwindCSS and other libraries</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/?id=project2">WanderLog</a> | <a className="text-colour-link hover:font-bold" href="/?id=project3">Stargazer</a> | <a className="text-colour-link hover:font-bold" href="/?id=project4">NJF</a></p>
           </div>
           <button onClick={() => openAccordionSection("javascript")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaJs className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">JavaScript</p>
           </button>
           <div id="javascript" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">9 months' experience building MERN stack applications and Next.js sites. 6 kyu on CodeWars.</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/?id=project2">WanderLog</a> | <a className="text-colour-link hover:font-bold" href="/?id=project3">Stargazer</a> | <a className="text-colour-link hover:font-bold" href="/?id=project4">NJF</a> | <a className="text-colour-link hover:font-bold" href="https://www.codewars.com/users/phianova" target="_blank">CodeWars</a></p>
           </div>
           <button onClick={() => openAccordionSection("git")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaGithub className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">Git & GitHub</p>
           </button>
           <div id="git" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience using Git and GitHub version control in a professional context</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="https://github.com/phianova" target="_blank">GitHub</a> | <a className="text-colour-link hover:font-bold" href="/SophiaWarrenCV.pdf" target="_blank">CV</a></p>
           </div>
           <button onClick={() => openAccordionSection("sql")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaDatabase className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">SQL & PostgreSQL</p>
           </button>
           <div id="sql" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience using PostgreSQL to analyse large administrative datasets</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/SophiaWarrenCV.pdf" target="_blank">CV</a></p>
           </div>
           <button onClick={() => openAccordionSection("stata")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaChartBar className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">Stata</p>
           </button>
           <div id="stata" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience using Stata to analyse large administrative datasets</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/SophiaWarrenCV.pdf" target="_blank">CV</a></p>
           </div>
           <button onClick={() => openAccordionSection("typescript")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaJs className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">TypeScript</p>
           </button>
           <div id="typescript" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience maintaining part of a TypeScript rules engine. 3 months' experience building full-stack applications in TypeScript</p>
+            <p className="px-5 py-3 text-lg">See: <a className="text-colour-link hover:font-bold" href="/?id=project1">KettleOn</a> | <a className="text-colour-link hover:font-bold" href="/SophiaWarrenCV.pdf" target="_blank">CV</a></p>
           </div>
         </div>
         <div className="col-span-1 w-11/12">
@@ -231,21 +345,21 @@ export default function Home() {
             <p className="px-3 text-2xl">Technical writing</p>
           </button>
           <div id="writing" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience explaining complex welfare policy details and software development updates to a range of audiences both external and internal</p>
           </div>
           <button onClick={() => openAccordionSection("communication")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaComment className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">Communication</p>
           </button>
           <div id="communication" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience in the advice sector, followed by 3 years' experience running training sessions, producing publishable written work, and presenting technical findings to a range of audiences</p>
           </div>
           <button onClick={() => openAccordionSection("testing")} className="flex flex-row items-center px-5 hover:font-bold duration-200">
             <FaVial className="text-colour-text text-3xl" />
             <p className="px-3 text-2xl">Software testing</p>
           </button>
           <div id="testing" className="hidden flex flex-col items-center w-11/12 z-0">
-            <p className="px-5 py-3 text-lg">Description here</p>
+            <p className="px-5 py-3 text-lg">3 years' experience manually testing software and contributing to integration testing of rules engine</p>
           </div>
           <h3 className="text-3xl p-3 bg-gradient-to-l from-accent-one to-white shadow-lg w-full my-5 rounded-r-full">Some knowledge of:</h3>
           <div className="flex flex-row items-center px-5">
@@ -281,22 +395,21 @@ export default function Home() {
         </motion.div>
       </div>
 
-      
+
       <div id="about" className="w-full flex flex-col min-h-screen items-center bg-gradient-to-b from-white via-accent-two/20 to-accent-two pt-16 sm:pt-32">
         <motion.img initial={{ x: 200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-1/2 sm:w-3/12 xl:w-2/12 sm:pt-4" src="/favicon.ico" alt="profile" />
         <motion.div initial={{ x: -200 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
           className="w-10/12 lg:w-8/12 xl:w-6/12 flex flex-col items-center p-8 my-2 sm:my-5 text-lg md:text-xl lg:text-2xl bg-gradient-to-r from-white/40 to-white/20 rounded-xl">
-          I moved into software development after several years working in welfare benefits policy.
+          I moved into software development after working in welfare benefits policy and data analysis.
           I'm passionate about "tech for good" and using my skills to solve social problems.
-          I'm always looking to learn new things and love a challenge.
-          <br></br><br></br>When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my little heart out.
-          I'm also a huge foodie and a lover of tabletop RPGs.
+          <br></br><br></br>When I'm not tapping away at a keyboard, I can often be found tapping away at a piano, strumming away at a guitar or singing my heart out.
+          Also a huge foodie and a fan of tabletop RPGs.
         </motion.div>
-        <motion.a 
+        <motion.a
           initial={{ y: 0, z: 0 }} animate={{ y: [0, -8, 0], z: 0 }} transition={{ repeat: Infinity, duration: 1.1, ease: "easeOut" }}
           className="bg-accent-two border-white/40 border-4 rounded-full text-2xl my-10 p-5 hover:bg-white"
           href="/contact">
-            Get in touch
+          Get in touch
         </motion.a>
       </div>
     </main >
