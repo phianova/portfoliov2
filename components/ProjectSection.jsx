@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { icons } from '../app/constants'
+import { icons } from '../app/icons'
 
 const ProjectSection = ({ project }) => {
     const techstack = []

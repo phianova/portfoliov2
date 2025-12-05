@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import ProjectSection from "../components/ProjectSection";
 import { motion } from "framer-motion";
-import { myStack, icons, workProjects, personalProjects, skills, softSkills, someKnowledge } from "./constants";
+import { myStack, workProjects, personalProjects, skills, softSkills, someKnowledge } from "./content";
+import { icons } from "./icons";
 import { FaArrowDown } from "react-icons/fa";
 
 export default function Home() {
