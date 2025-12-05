@@ -67,7 +67,7 @@ export const personalProjects = [
         id: "project3"
     },
     {
-        name: "Ninian James Frenguelli",
+        name: "NJF",
         description: "Next.js & TailwindCSS - online CV/portfolio for academic",
         mainimage: "/personal/project3image.png",
         techstack: ["React", "Next.js", "TailwindCSS", "GitHub"],
