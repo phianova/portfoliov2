@@ -41,4 +41,8 @@ export const icons = {
     "Swift": <FaSwift />,
     "Xcode": <SiXcode />,
     "Serverless": <FaAws />,
+    "Technical writing": <FaPen />,
+    "Communication": <FaComment />,
+    "Software testing": <FaVial />,
+    "Tableau": <FaChartPie />,
 }

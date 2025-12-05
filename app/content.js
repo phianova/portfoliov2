@@ -1,4 +1,4 @@
-
+import { icons } from "./icons";
 export const myStack = [
     "React",
     "Next.js",
@@ -83,7 +83,7 @@ export const skills = [
         name: "React & Next.js",
         isAccordion: true,
         accordionId: "react",
-        icon: <FaReact />,
+        icon: icons["React"],
         description: "2 years' experience building frontends in React and Next.js",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -98,7 +98,7 @@ export const skills = [
         name: "Node.js",
         isAccordion: true,
         accordionId: "node",
-        icon: <FaJs />,
+        icon: icons["Node.js"],
         description: "2 years' experience building backends in Node.js",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -109,7 +109,7 @@ export const skills = [
         name: "TypeScript",
         isAccordion: true,
         accordionId: "typescript",
-        icon: <SiTypescript />,
+        icon: icons["TypeScript"],
         description: "2 years' experience building full-stack applications in TypeScript",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -122,7 +122,7 @@ export const skills = [
         name: "JavaScript",
         isAccordion: true,
         accordionId: "javascript",
-        icon: <FaJs />,
+        icon: icons["JavaScript"],
         description: "2 years' experience building full-stack applications in JavaScript",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -137,7 +137,7 @@ export const skills = [
         name: "HTML/CSS & TailwindCSS",
         isAccordion: true,
         accordionId: "html",
-        icon: <FaCode />,
+        icon: icons["HTML/CSS"],
         description: "2 years'experience building Next.js sites and HTML pages using TailwindCSS and other libraries",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -152,7 +152,7 @@ export const skills = [
         name: "SQL & PostgreSQL",
         isAccordion: true,
         accordionId: "sql",
-        icon: <FaDatabase />,
+        icon: icons["SQL"],
         description: "3 years' experience using PostgreSQL to analyse large administrative datasets and MySQL to maintain databases.",
         sources: [
             { name: "CV", href: "/SophiaWarrenCV.pdf" },
@@ -162,7 +162,7 @@ export const skills = [
         name: "AWS",
         isAccordion: true,
         accordionId: "aws",
-        icon: <FaAws />,
+        icon: icons["AWS"],
         description: "2 years' experience using AWS to deploy and manage applications. Certified Cloud Practitioner. I've used Lambda, S3, DynamoDB, CloudWatch, Kinesis and more.",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -173,7 +173,7 @@ export const skills = [
         name: "Git & GitHub",
         isAccordion: true,
         accordionId: "git",
-        icon: <FaGithub />,
+        icon: icons["GitHub"],
         description: "4 years' experience using Git and GitHub version control in a professional context",
         sources: [
             { name: "NX10", href: "/?id=project1" },
@@ -187,7 +187,7 @@ export const skills = [
         name: "MongoDB & Express",
         isAccordion: true,
         accordionId: "mongodb",
-        icon: <FaDatabase />,
+        icon: icons["MongoDB"],
         description: "6 months' experience building full-stack MERN stack applications",
         sources: [
             { name: "KettleOn", href: "/?id=project1" },
@@ -197,7 +197,7 @@ export const skills = [
         name: "Stata",
         isAccordion: true,
         accordionId: "stata",
-        icon: <FaChartBar />,
+        icon: icons["Stata"],
         description: "3 years' experience using Stata to analyse large administrative datasets",
         sources: [
             { name: "CV", href: "/SophiaWarrenCV.pdf" },
@@ -210,7 +210,7 @@ export const softSkills = [
         name: "Technical writing",
         isAccordion: true,
         accordionId: "writing",
-        icon: <FaPen />,
+        icon: icons["Technical writing"],
         description: "3 years' experience explaining complex welfare policy details and software development updates to a range of audiences both external and internal",
         sources: [
             { name: "CV", href: "/SophiaWarrenCV.pdf" },
@@ -220,7 +220,7 @@ export const softSkills = [
         name: "Communication",
         isAccordion: true,
         accordionId: "communication",
-        icon: <FaComment />,
+        icon: icons["Communication"],
         description: "3 years' experience in the advice sector, followed by 3 years' experience running training sessions, producing publishable written work, and presenting technical findings to a range of audiences",
         sources: [
             { name: "CV", href: "/SophiaWarrenCV.pdf" },
@@ -230,7 +230,7 @@ export const softSkills = [
         name: "Software testing",
         isAccordion: true,
         accordionId: "testing",
-        icon: <FaVial />,
+        icon: icons["Software testing"],
         description: "3 years' experience manually testing software and contributing to integration testing of rules engine",
         sources: [
             { name: "CV", href: "/SophiaWarrenCV.pdf" },
@@ -241,14 +241,14 @@ export const softSkills = [
 export const someKnowledge = [
     {
         name: "R",
-        icon: <FaRProject />,
+        icon: icons["R"],
     },
     {
         name: "Tableau",
-        icon: <FaChartPie />,
+        icon: icons["Tableau"],
     },
     {
         name: "Python",
-        icon: <FaPython />,
+        icon: icons["Python"],
     },
 ]
