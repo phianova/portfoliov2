@@ -182,7 +182,7 @@ export const skills = [
         isAccordion: true,
         accordionId: "html",
         icon: <FaCode />,
-        description: "9 months' experience building Next.js sites and HTML pages using TailwindCSS and other libraries",
+        description: "2 years'experience building Next.js sites and HTML pages using TailwindCSS and other libraries",
         sources: [
             { name: "NX10", href: "/?id=project1" },
             { name: "KettleOn", href: "/?id=project1" },
